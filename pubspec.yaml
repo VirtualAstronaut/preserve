@@ -1,0 +1,25 @@
+name: preserve
+description: A sample command-line application.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.2.3
+
+# Add regular dependencies here.
+dependencies:
+  #remove later
+  args: ^2.4.2
+  get_it: ^7.6.7
+  oauth2: ^2.0.2
+  open_url: ^2.0.1
+  shelf: ^1.4.1
+  shelf_router: ^1.1.4
+  shelf_static: ^1.1.2
+  spotify: ^0.13.0
+  yaml: ^3.1.2
+  # path: ^1.8.0
+
+dev_dependencies:
+  lints: ^2.1.0
+  test: ^1.24.0
