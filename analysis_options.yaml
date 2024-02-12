@@ -19,6 +19,9 @@ include: package:lints/recommended.yaml
 #   rules:
 #     - camel_case_types
 
+analyzer:
+  plugins:
+    - custom_lint
 # analyzer:
 #   exclude:
 #     - path/to/excluded/files/**

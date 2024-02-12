@@ -7,5 +7,5 @@ final getItInstance = GetIt.instance;
 
 void locatorSetup() {
   getItInstance.registerSingleton<AppConfig>(AppConfig());
-  getItInstance.registerSingleton<SpotifyService>(SpotifyService());
+  // getItInstance.registerSingleton<SpotifyService>(SpotifyService());
 }

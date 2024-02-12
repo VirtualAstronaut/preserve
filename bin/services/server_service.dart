@@ -1,15 +1,26 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
+import 'package:riverpod/riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart';
 import 'package:shelf_router/shelf_router.dart';
 
-import '../locator.dart';
 import 'services.dart';
+
+part 'server_service.g.dart';
 
 const _hostName = 'localhost';
 late final HttpServer _server;
+
+@riverpod
+class ServerService extends _$ServerService {
+  @override
+  void build() {
+    return;
+  }
+}
 
 int _checkPort(portFromCmd) {
   var portStr = portFromCmd ?? Platform.environment['PORT'] ?? '6969';
@@ -37,7 +48,9 @@ Future<Response> _spotifyAuthHandler(Request request) async {
     print('error: spotify code is null');
     throw Exception('spotify code is null');
   }
-  final spotifyService = getItInstance<SpotifyService>();
+  final provider = ProviderContainer();
+
+  final spotifyService = provider.read(spotifyServiceProvider.notifier);
   spotifyService.saveCodeToLocal(code);
   // stopServer();
   return Response.ok('');
